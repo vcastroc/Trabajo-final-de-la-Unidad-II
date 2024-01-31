@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Traductor de C++ a Python</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("https://radioondaazul.com/wp-content/uploads/2023/06/Toma-de-local-en-la-UNA-Puno-.jpg");
+            background-size: cover;  /* Ajusta la imagen para cubrir completamente el fondo */
+            background-position: center;  /* Centra la imagen en el fondo */
+            text-align: center;
+        }
+
+        .card-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            border-radius: 10%;
+        }
+
+        .izquierda {
+            flex-basis: 27%; /* Div izquierdo ocupa el 30% */
+            background-color: #ffffff;
+
+            max-height: 500px; /* Altura máxima de la sección de resultados */
+            overflow-y: scroll; /* Añadir scroll vertical */
+        }
+
+        .derecha {
+            flex-basis: 27%; /* Div derecho ocupa el 70% */
+            background-color: #ffffff;
+
+            max-height: 500px; /* Altura máxima de la sección de resultados */
+            overflow-y: scroll; /* Añadir scroll vertical */
+        }
+
+        .card {
+            margin: 10px;
+            padding: 20px;
+        }
+
+        h1, h2, h3 {
+            text-align: center;
+        }
+
+        form {
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+
+        form h4 {
+            margin-top: 10px;
+        }
+
+        form input[type="file"] {
+            margin-top: 0;
+            background-color: #ff0202;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 3%;
+        }
+
+        label {
+            margin-top: 0;
+            background-color: #d69d0c;
+            color: white;
+            padding: 6px 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4%;
+        }
+
+        form input[type="submit"] {
+            margin-top: 20px;
+            background-color: #1199cb;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10%;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        p {
+            margin-bottom: 5px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <br><br><br><br><br>
+    <div class="card-group">
+        <div class="card izquierda">
+            <div class="card-body">
+                <h2 style="color: rgb(5, 11, 90);">Código en C++</h2>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <h5>Ingrese en este campo el código C++:</h5>
+
+                    <h5 style="color: rgb(255, 0, 0);">{{ mensaje_error }}</h5>
+
+                    {{ formulario.texto }}
+
+                    <input type="submit" value="Convertir">
+                </form>
+            </div>
+        </div>
+
+        <div class="card derecha">
+            <div class="card-body border">
+                <h2 style="color: rgb(5, 11, 90);;">Código en Python</h2>
+                <form>
+                    <h5>Código traducido de C++ a Python:</h5>
+                    <h4 style="color: rgb(10, 10, 162);"><pre>{{ traducido }}</pre></h4>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
